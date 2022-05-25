@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>products</title>
+    <title>sub-groups</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <link rel="stylesheet"
@@ -32,16 +32,8 @@
         @endif
         <header>
             <!--- NavBar-->
-
-
-
-
         </header>
         <!--end of header-->
-
-        <div style="padding-left:2px;padding-top:20px">
-            <h2>Add New SubGroup</h2>
-        </div>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -52,35 +44,34 @@
                 </ul>
             </div>
         @endif
+        <div class="container">
+            <h3 class="h3" style="color: blue;"><strong>Add New Sub-Group</strong></h3><br>
+            <form action="{{ route('subgroups.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="id" value="{{ $subgroup->id ?? '' }}" />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Name:</strong>
+                            <input type="text" name="name" value="{{ $subgroup->name ?? '' }}" class="form-control"
+                                placeholder="Name">
+                        </div>
+                    </div><br>
 
 
-        <form action="{{ route('subgroups.store') }}" method="POST">
-            @csrf
-            <input type="hidden" name="id" value="{{ $subgroup->id ?? '' }}" />
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Name:</strong>
-                        <input type="text" name="name" value="{{ $subgroup->name ?? '' }}" class="form-control"
-                            placeholder="Name">
-                    </div>
-                </div><br>
 
-
-
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-                <button type="submit" class="btn btn-primary" style="margin:35px">Submit</button>
-            </div>
-            </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+                    <button type="submit" class="btn btn-primary" style="margin:35px">Submit</button>
+                </div>
+        </div>
 
         </form>
         <table id="table" class="table table-bordered">
-            <thead class="bg-primary text-white">
+            <thead class="bg-info text-white">
                 <tr>
                     <th>No</th>
                     <th>Name</th>
-
                     <th width="280px">Action</th>
                 </tr>
             </thead>
@@ -89,7 +80,7 @@
 
             </tbody>
         </table>
-
+        </div>
     </body>
     <script>
         $(function() {

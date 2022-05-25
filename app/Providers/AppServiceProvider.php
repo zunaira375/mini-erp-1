@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
+use View;
+use App\Models\Navbar;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**
@@ -23,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Paginator::useBootstrap();
+
+        View::composer('*', function ($view) {
+            $navbars = Navbar::orderBy('ordering')->get();
+            $view->with('navbars', $navbars);
+        });
     }
 }

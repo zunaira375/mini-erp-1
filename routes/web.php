@@ -2,16 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CompanyController;
-
 use App\Http\Controllers\FrontController;
-
 use App\Http\Controllers\GroupController;
-
 use App\Http\Controllers\SubGroupController;
-
 use App\Http\Controllers\BrandController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,18 +24,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 
+Route::resource('companies', CompanyController::class)->middleware('CustomAuth');
+Route::resource('groups', GroupController::class)->middleware('CustomAuth');
+Route::resource('subgroups', SubGroupController::class)->middleware('CustomAuth');
+Route::resource('brands', BrandController::class)->middleware('CustomAuth');
 
-Route::resource('companies', CompanyController::class);
+// Route::get('/home', [FrontController::class, 'home'])->name('home');
+// Route::get('/about-us', [FrontController::class, 'aboutUs'])->name('about.us');
 
-Route::resource('groups', GroupController::class);
-
-use App\Http\Controllers\ProductController;
-
-Route::resource('subgroups', SubGroupController::class);
-
-
-Route::resource('brands', BrandController::class);
-
-Route::get('home', [FrontController::class, 'home'])->name('home');
-Route::get('about-us', [FrontController::class, 'aboutUs'])->name('about.us');
+Route::get('/home', [FrontController::class, 'home'])->middleware('CustomAuth')->name('home');
+Route::get('/about-us', [FrontController::class, 'aboutUs'])->middleware('CustomAuth')->name('about.us');

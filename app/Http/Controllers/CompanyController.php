@@ -16,15 +16,11 @@ class CompanyController extends Controller
     public function index(Request $request)
 
     {
-
-
         if ($request->ajax()) {
             $data = Company::latest()->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-
-                    //   $btn =  '<a href="/products/' . $data->id . '/edit" class="btn btn-primary"><i class="bi bi-pencil"></i></a>';
                     $btn = ' <a href="/companies/' . $data->id . '/edit"  class="btn btn-primary btn-md "><i class="fas fa-pen text-white"></i></a>';
                     $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-md deleteCompany"><i class="far fa-trash-alt text-white" data-feather="delete"></i></a>';
 
@@ -35,10 +31,6 @@ class CompanyController extends Controller
                 // })
                 ->rawColumns(['action'])->make(true);
         }
-
-
-
-
         return view('companies.index')
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -64,29 +56,18 @@ class CompanyController extends Controller
             //perform Edit
             $id = $request->get('id');
             $company = Company::find($id);
-
-
             $company->name = $request->name;
-
             $company->description = $request->description;
-
             $company->save();
-
-            // $product->categories()->attach($request->category);
-
 
             return redirect()->route('companies.index')
                 ->with('success', 'Company updated successfully.');
         } else {
 
-
             //Perform Create
             $request->validate([
                 'name' => 'required',
                 'description' => 'required',
-
-
-
             ]);
             Company::create($request->all());
         }
@@ -114,13 +95,9 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        // return view('products.index', compact('product'));
 
         $company = Company::find($id);
         $companies = Company::latest()->paginate(5);
-
-
-        // $categories = Category::latest()->paginate(5);
 
         return view('companies.index', compact('company', 'companies'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -138,8 +115,6 @@ class CompanyController extends Controller
 
             'name' => 'required',
             'description' => 'required',
-
-
 
         ]);
 

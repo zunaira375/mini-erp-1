@@ -16,8 +16,6 @@ class GroupController extends Controller
     public function index(Request $request)
 
     {
-
-
         if ($request->ajax()) {
             $data = Group::latest()->get();
             return Datatables::of($data)
@@ -35,9 +33,6 @@ class GroupController extends Controller
                 // })
                 ->rawColumns(['action'])->make(true);
         }
-
-
-
 
         return view('groups.index')
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -65,12 +60,8 @@ class GroupController extends Controller
             //perform Edit
             $id = $request->get('id');
             $group = Group::find($id);
-
-
             $group->name = $request->name;
-
             $group->pct_code = $request->pct_code;
-
             $group->save();
 
             // $product->categories()->attach($request->category);
@@ -85,8 +76,6 @@ class GroupController extends Controller
             $request->validate([
                 'name' => 'required',
                 'pct_code' => 'required',
-
-
 
             ]);
             Group::create($request->all());
@@ -139,8 +128,6 @@ class GroupController extends Controller
 
             'name' => 'required',
             'pct_code' => 'required',
-
-
 
         ]);
 

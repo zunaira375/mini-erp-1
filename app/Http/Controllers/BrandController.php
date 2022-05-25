@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
-
 use Yajra\DataTables\Facades\DataTables;
 
 
@@ -18,15 +17,11 @@ class BrandController extends Controller
     public function index(Request $request)
 
     {
-
-
         if ($request->ajax()) {
             $data = Brand::latest()->get();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
-
-                    //   $btn =  '<a href="/products/' . $data->id . '/edit" class="btn btn-primary"><i class="bi bi-pencil"></i></a>';
                     $btn = ' <a href="/brands/' . $data->id . '/edit"  class="btn btn-primary btn-md "><i class="fas fa-pen text-white"></i></a>';
                     $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $data->id . '" data-original-title="Delete" class="btn btn-danger btn-md deleteBrand"><i class="far fa-trash-alt text-white" data-feather="delete"></i></a>';
 
@@ -37,10 +32,6 @@ class BrandController extends Controller
                 // })
                 ->rawColumns(['action'])->make(true);
         }
-
-
-
-
         return view('brands.index')
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -66,32 +57,18 @@ class BrandController extends Controller
             //perform Edit
             $id = $request->get('id');
             $brand = Brand::find($id);
-
-
             $brand->name = $request->name;
-
-
             $brand->save();
-
-            // $product->categories()->attach($request->category);
-
 
             return redirect()->route('brands.index')
                 ->with('success', 'Brand updated successfully.');
         } else {
-
-
             //Perform Create
             $request->validate([
                 'name' => 'required',
-
-
-
-
             ]);
             Brand::create($request->all());
         }
-
         return redirect()->route('brands.index')
             ->with('success', 'brand created successfully.');
     }
@@ -105,7 +82,6 @@ class BrandController extends Controller
     {
         return view('brands.show', compact('brand'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -114,14 +90,9 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        // return view('products.index', compact('product'));
 
         $brand = Brand::find($id);
         $brands = Brand::latest()->paginate(5);
-
-
-        // $categories = Category::latest()->paginate(5);
-
         return view('brands.index', compact('brand', 'brands'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -137,10 +108,6 @@ class BrandController extends Controller
         $request->validate([
 
             'name' => 'required',
-
-
-
-
         ]);
 
         $brand->update($request->all());
@@ -158,7 +125,6 @@ class BrandController extends Controller
     public function destroy(Brand $brand)
     {
         $brand->delete();
-
         return redirect()->route('brands.index')
             ->with('success', 'brand deleted successfully');
     }

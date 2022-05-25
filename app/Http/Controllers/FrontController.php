@@ -21,10 +21,7 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function companies()
-    {
-        return view('companies');
-    }
+
 
     /**
      * Display a listing of the resource.

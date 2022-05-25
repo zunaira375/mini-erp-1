@@ -17,8 +17,6 @@ class SubGroupController extends Controller
     public function index(Request $request)
 
     {
-
-
         if ($request->ajax()) {
             $data = SubGroup::latest()->get();
             return Datatables::of($data)
@@ -36,9 +34,6 @@ class SubGroupController extends Controller
                 // })
                 ->rawColumns(['action'])->make(true);
         }
-
-
-
 
         return view('subgroups.index')
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -67,27 +62,14 @@ class SubGroupController extends Controller
             //perform Edit
             $id = $request->get('id');
             $subgroup = SubGroup::find($id);
-
-
             $subgroup->name = $request->name;
-
-
             $subgroup->save();
-
-            // $product->categories()->attach($request->category);
-
-
             return redirect()->route('subgroups.index')
                 ->with('success', 'subGroup updated successfully.');
         } else {
-
-
             //Perform Create
             $request->validate([
                 'name' => 'required',
-
-
-
             ]);
             SubGroup::create($request->all());
         }
@@ -119,8 +101,6 @@ class SubGroupController extends Controller
 
         $subgroup = SubGroup::find($id);
         $subgroups = SubGroup::latest()->paginate(5);
-
-
         // $categories = Category::latest()->paginate(5);
 
         return view('subgroups.index', compact('subgroup', 'subgroups'))->with('i', (request()->input('page', 1) - 1) * 5);
@@ -138,10 +118,6 @@ class SubGroupController extends Controller
         $request->validate([
 
             'name' => 'required',
-
-
-
-
         ]);
 
         $subgroup->update($request->all());
