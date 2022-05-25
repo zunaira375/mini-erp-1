@@ -23,7 +23,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-info">
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-success">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -60,6 +60,14 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="/brands">Brands</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/customers">Customers</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/chartofaccounts">ChartOfAccounts</a>
                         </li>
 
 

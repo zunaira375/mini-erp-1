@@ -43,7 +43,7 @@
             </div>
         @endif
         <div class="container">
-            <h3 class="h3" style="color: blue;"><strong>Add New Brand</strong></h3><br>
+            <h3 class="h3"><strong>Add New Brand</strong></h3><br>
             <form action="{{ route('brands.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $brand->id ?? '' }}" />
@@ -63,7 +63,7 @@
 
         </form>
         <table id="table" class="table table-bordered">
-            <thead class="bg-primary text-white">
+            <thead class="bg-success text-white">
                 <tr>
                     <th>No</th>
                     <th>Name</th>

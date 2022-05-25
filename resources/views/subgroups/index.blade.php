@@ -45,7 +45,7 @@
             </div>
         @endif
         <div class="container">
-            <h3 class="h3" style="color: blue;"><strong>Add New Sub-Group</strong></h3><br>
+            <h3 class="h3" ><strong>Add New Sub-Group</strong></h3><br>
             <form action="{{ route('subgroups.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $subgroup->id ?? '' }}" />
@@ -68,7 +68,7 @@
 
         </form>
         <table id="table" class="table table-bordered">
-            <thead class="bg-info text-white">
+            <thead class="bg-success text-white">
                 <tr>
                     <th>No</th>
                     <th>Name</th>

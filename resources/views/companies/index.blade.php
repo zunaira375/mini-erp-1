@@ -43,7 +43,7 @@
             </div>
         @endif
         <div class="container">
-            <h3 class="h3" style="color: rgb(105, 105, 211);"><strong>Add New Company</strong></h3><br>
+            <h3 class="h3" ><strong>Add New Company</strong></h3><br>
 
             <form action="{{ route('companies.store') }}" method="POST">
                 @csrf
@@ -78,7 +78,7 @@
 
         </form>
         <table id="table" class="table table-bordered">
-            <thead class="bg-info text-white">
+            <thead class="bg-success text-white">
                 <tr>
                     <th>No</th>
                     <th>Name</th>
