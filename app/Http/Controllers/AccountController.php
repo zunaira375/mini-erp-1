@@ -135,11 +135,6 @@ class AccountController extends Controller
      * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Account $account)
-    {
-        //
-
-    }
 
     /**
      * Remove the specified resource from storage.

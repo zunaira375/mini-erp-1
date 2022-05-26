@@ -23,7 +23,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-success">
+        {{-- <nav class="navbar navbar-expand-sm navbar navbar-dark bg-success">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -110,7 +110,12 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
+
+        @include('layouts.header')
+        @include('layouts.footer')
+        @include('layouts.sidebar')
+        @yield('content')
 
         <main class="py-4">
             @yield('content')
