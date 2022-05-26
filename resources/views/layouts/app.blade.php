@@ -66,7 +66,9 @@
                             <a class="nav-link" href="/customers">Customers</a>
                         </li>
 
-                  
+                        <li class="nav-item">
+                            <a class="nav-link" href="/accounts">Accounts</a>
+                        </li>
 
                     </ul>
 
