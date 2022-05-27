@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+* {
+    box-sizing: border-box;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    font-family: "Dela Gothic One", cursive;
+    margin: 0;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.bg {
+    background: url("https://images.unsplash.com/photo-1632010752286-94f8b0f7be68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") no-repeat center center/cover;
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 100vw;
+    width: calc(100vw + 60px);
+    height: calc(100vh + 60px);
+    min-height: 100vh;
+    z-index: -1;
+    filter: blur(60px);
+}
+
+.loading-text {
+    font-size: 200px;
+    color: royalblue;
+    text-align: center;
+    margin-top: 19%;
+    font-family: Futura;
+    font-weight: bold;
+}

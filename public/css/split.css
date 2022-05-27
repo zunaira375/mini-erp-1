@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+:root {
+    --left-bg-color: rgba(87, 84, 236, 0.7);
+    --right-bg-color: rgba(78, 76, 76, 0.8);
+    --left-hover-color: rgb(170, 169, 243);
+    --right-hover-color: rgba(28, 122, 28, 1);
+    --hover-width: 75%;
+    --other-width: 25%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    color: rgba(246, 245, 253, 0.712);
+    font-size: 3.5rem;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.btn {
+    text-decoration: none;
+    color: rgb(238, 129, 13);
+    text-transform: uppercase;
+    border: 4px solid rgb(231, 124, 36);
+    padding: 1.5rem;
+    width: 12rem;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+
+.split.left .btn:hover {
+    background-color: var(--left-hover-color);
+    border-color: var(--left-hover-color);
+}
+
+.split.right .btn:hover {
+    background-color: var(--right-hover-color);
+    border-color: var(--right-hover-color);
+}
+
+.container {
+    position: relative;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.split.left {
+    left: 0;
+    background: url('https://media.istockphoto.com/photos/game-symbols-playstation-5-icons-on-a-black-background-cross-triangle-picture-id1309172116?b=1&k=20&m=1309172116&s=170667a&w=0&h=tKFiKMsXevGgmBL_ztAIlkpIHD5mnVFPVjBqJnpmmxQ=');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.right {
+    right: 0;
+    background: url('https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8eGJveHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-bg-color);
+}
+
+.split.left,
+.split.left::before,
+.split.right,
+.split.right::before {
+    transition: all 1s ease-in-out;
+}
+
+.hover-left .left {
+    width: var(--hover-width)
+}
+
+.hover-left .right {
+    width: var(--other-width)
+}
+
+.hover-right .left {
+    width: var(--other-width)
+}
+
+.hover-right .right {
+    width: var(--hover-width)
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 2rem;
+        top: 30%;
+    }
+    .btn {
+        padding: 1rem;
+        width: 10rem;
+    }
+}
