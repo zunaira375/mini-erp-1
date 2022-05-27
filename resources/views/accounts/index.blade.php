@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('meta')
     <!DOCTYPE html>
 
@@ -22,7 +22,7 @@
     </head>
 
     <body>
-        <?php
+       <?php
        // print_r($accounts->toArray());
         //exit();
 
@@ -153,8 +153,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered bg-info" id="table">
-                                        <thead class="text-white">
+                                    <table  id="table" class="table table-bordered">
+                                        <thead class="bg-info text-white">
                                             <th>
                                                 Account Name
                                             </th>

@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.master')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,7 +90,7 @@
 
 </form>
  <table id="table" class="table table-bordered">
-    <thead class="bg-success text-white">
+    <thead class="bg-info text-white">
         <tr>
             <th>No</th>
             <th>Name</th>
