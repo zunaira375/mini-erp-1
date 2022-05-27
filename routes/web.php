@@ -29,6 +29,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
 Route::resource('companies', CompanyController::class)->middleware('CustomAuth');
@@ -44,3 +46,7 @@ Route::resource('accounts', AccountController::class)->middleware('CustomAuth');
 
 Route::get('/home', [FrontController::class, 'home'])->middleware('CustomAuth')->name('home');
 Route::get('/about-us', [FrontController::class, 'aboutUs'])->middleware('CustomAuth')->name('about.us');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

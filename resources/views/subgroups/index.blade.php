@@ -20,7 +20,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 
 </head>
-
 <body>
     @section('content')
         <!--alert -->
@@ -45,41 +44,33 @@
             </div>
         @endif
         <div class="container">
-            <h3 class="h3" ><strong>Add New Sub-Group</strong></h3><br>
+            <h3 class="h3"><strong>Add New Sub-Group</strong></h3><br>
             <form action="{{ route('subgroups.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $subgroup->id ?? '' }}" />
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Name:</strong>
-                            <input type="text" name="name" value="{{ $subgroup->name ?? '' }}" class="form-control"
-                                placeholder="Name">
-                        </div>
-                    </div><br>
-
-
-
+                <div class="form-group">
+                    <strong>Name:</strong>
+                    <input type="text" name="name" value="{{ $subgroup->name ?? '' }}" class="form-control"
+                        placeholder="Name">
                 </div>
+
                 <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                     <button type="submit" class="btn btn-primary" style="margin:35px">Submit</button>
                 </div>
-        </div>
 
-        </form>
-        <table id="table" class="table table-bordered">
-            <thead class="bg-success text-white">
-                <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th width="280px">Action</th>
-                </tr>
-            </thead>
+            </form>
+            <table id="table" class="table table-bordered">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th width="280px">Action</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-
-            </tbody>
-        </table>
+                <tbody>
+                </tbody>
+            </table>
         </div>
     </body>
     <script>

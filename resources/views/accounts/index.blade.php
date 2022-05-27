@@ -35,7 +35,7 @@
                         <div class="card">
                             <div class="card-header card-header-danger">
                                 <h4 class="card-title">Chart Of Accounts</h4>
-                                <p class="card-category">Chart Of Accounts Information Form</p>
+                                {{-- <p class="card-category">Chart Of Accounts Information Form</p> --}}
                             </div>
                             <div class="card-body">
                                 <form method="post" action="{{ route('accounts.store') }}">
@@ -46,8 +46,8 @@
                                         <div class="col-md-4">
                                             <div
                                                 class="form-group @if ($errors->has('account_name')) has-danger bmd-form-group @endif">
-                                                <label class="bmd-label-floating">Account Name</label>
-                                                <input type="text" class="form-control"
+                                                {{-- <label class="bmd-label-floating">Account Name</label> --}}
+                                                <input type="text" class="form-control" placeholder="Account Name"
                                                     value="{{ $existing == null ? old('account_name') : $existing->account_name }}"
                                                     name="account_name">
                                                 @if ($errors->has('account_name'))
@@ -136,8 +136,8 @@
                                                 @endif
                                             </div>
                                         </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-danger pull-right">Save</button>
+                                    </div><br>
+                                    <button type="submit" class="btn btn-primary pull-right">Save</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -149,12 +149,12 @@
                         <div class="card">
                             <div class="card-header card-header-danger">
                                 <h4 class="card-title ">Chart Of Account Information</h4>
-                                <p class="card-category"> Here All Chart Of Account Information Available</p>
+                                {{-- <p class="card-category"> Here All Chart Of Account Information Available</p> --}}
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="table">
-                                        <thead class="text-primary">
+                                    <table class="table table-bordered bg-info" id="table">
+                                        <thead class="text-white">
                                             <th>
                                                 Account Name
                                             </th>
@@ -172,7 +172,7 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>

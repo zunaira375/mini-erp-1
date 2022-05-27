@@ -48,37 +48,33 @@
             <form action="{{ route('companies.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $company->id ?? '' }}" />
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+
                         <div class="form-group">
                             <strong>Name:</strong>
                             <input type="text" name="name" value="{{ $company->name ?? '' }}" class="form-control"
                                 placeholder="Name">
                         </div>
-                    </div><br>
+               <br>
 
 
-                    <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group"><br>
                             <strong>Description:</strong>
                         </div>
-                    </div>
+
                     {{-- <input type="text" name="description" value="{{ $company->detail ?? '' }}" class="form-control"
                   maxlength=120 placeholder="Description"> --}}
                     <textarea class="form-control" type="text" name="description" id="description"
                         value="{{ $company->description ?? '' }}" class="form-control" placeholder="Description"
                         style="height: 168px;">
                 </textarea>
-                </div>
-        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-            <button type="submit" class="btn btn-primary" style="margin:50px;margin-left:120px;">Submit</button>
+            <button type="submit" class="btn btn-primary" style="margin:50px;">Submit</button>
         </div>
-        </div>
+
 
         </form>
         <table id="table" class="table table-bordered">
-            <thead class="bg-success text-white">
+            <thead class="bg-info text-white">
                 <tr>
                     <th>No</th>
                     <th>Name</th>

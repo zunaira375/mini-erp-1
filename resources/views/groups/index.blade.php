@@ -45,49 +45,45 @@
             </div>
         @endif
         <div class="container">
-            <h3 class="h3" ><strong>Add New Group</strong></h3><br>
+            <h3 class="h3"><strong>Add New Group</strong></h3><br>
 
             <form action="{{ route('groups.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $group->id ?? '' }}" />
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>Name:</strong>
-                            <input type="text" name="name" value="{{ $group->name ?? '' }}" class="form-control"
-                                placeholder="Name">
-                        </div>
-                    </div><br>
 
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <strong>PCT-Code:</strong>
-                            <input type="number" name="pct_code" value="{{ $group->pct ?? '' }}" class="form-control"
-                                placeholder="pct">
-                        </div>
-                    </div><br>
 
+                <div class="form-group">
+                    <strong>Name:</strong>
+                    <input type="text" name="name" value="{{ $group->name ?? '' }}" class="form-control"
+                        placeholder="Name">
+                </div>
+                <br>
+
+
+                <div class="form-group">
+                    <strong>PCT-Code:</strong>
+                    <input type="number" name="pct_code" value="{{ $group->pct ?? '' }}" class="form-control"
+                        placeholder="pct">
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                     <button type="submit" class="btn btn-primary" style="margin:35px">Submit</button>
-                </div>
-        </div>
 
-        </form>
-        <table id="table" class="table table-bordered">
-            <thead class="bg-success text-white">
-                <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Pct Code</th>
-                    <th width="280px">Action</th>
-                </tr>
-            </thead>
 
-            <tbody>
-            </tbody>
-        </table>
+            </form>
+            <table id="table" class="table table-bordered">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Pct Code</th>
+                        <th width="280px">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
         </div>
     </body>
     <script>

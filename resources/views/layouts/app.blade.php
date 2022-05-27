@@ -23,7 +23,7 @@
 
 <body>
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-sm navbar navbar-dark bg-success">
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-info">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -95,13 +95,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </div>
@@ -110,12 +110,7 @@
                     </ul>
                 </div>
             </div>
-        </nav> --}}
-
-        @include('layouts.header')
-        @include('layouts.footer')
-        @include('layouts.sidebar')
-        @yield('content')
+        </nav>
 
         <main class="py-4">
             @yield('content')
