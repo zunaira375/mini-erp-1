@@ -154,7 +154,7 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table  id="table" class="table table-bordered">
-                                        <thead class="bg-info text-white">
+                                        <thead class="bg-secondary text-white">
                                             <th>
                                                 Account Name
                                             </th>

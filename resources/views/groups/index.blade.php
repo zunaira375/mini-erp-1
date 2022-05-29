@@ -72,7 +72,7 @@
 
             </form>
             <table id="table" class="table table-bordered">
-                <thead class="bg-info text-white">
+                <thead class="bg-secondary text-white">
                     <tr>
                         <th>No</th>
                         <th>Name</th>

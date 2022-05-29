@@ -28,17 +28,15 @@ class AccountController extends Controller
 
                     return $btn;
                 })
-                // ->editColumn('cat_id', function ($row) {
-                //     return $row->category()->first()->name;
-                // })
+                ->editColumn('parent_id', function ($row) {
+                    return $row->account_name;
+                })
                 ->rawColumns(['action'])->make(true);
         }
         $existing = null;
         $accounts = Account::where('is_parent', '=', true)->get();
         return view('accounts.index', compact('existing', 'accounts'));
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -106,11 +104,6 @@ class AccountController extends Controller
      * @param  \App\Models\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function show(Account $account)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -126,7 +119,6 @@ class AccountController extends Controller
         }
         return "Error";
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -146,8 +138,6 @@ class AccountController extends Controller
     {
         //
         $existing = Account::find($id);
-
-
         if ($existing) {
             $existing->delete();
             Account::where('parent_id', $id)->delete();

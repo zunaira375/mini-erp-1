@@ -1,6 +1,6 @@
-<aside class="main-sidebar sidebar-dark-info elevation-4">
+<aside class="main-sidebar sidebar-dark-secondary elevation-4">
     <a href="{{ route('home') }}" class="brand-link">
-        <img src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png"
+        <img src="https://www.freeiconspng.com/thumbs/letter-m-icon-png/letter-m-icon-png-32.png"
              alt="Mini-Erp Logo"
              class="brand-image img-circle elevation-3">
         <span class="brand-text font-weight-light">{{ config('app.name') }}</span>

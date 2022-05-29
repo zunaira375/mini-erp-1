@@ -1,6 +1,7 @@
 @extends('layouts.master')
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,51 +44,51 @@
             </div>
         @endif
         <div class="container">
-            <h3 class="h3" ><strong>Add New Company</strong></h3><br>
+            <h3 class="h3"><strong>Add New Company</strong></h3><br>
 
             <form action="{{ route('companies.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $company->id ?? '' }}" />
 
-                        <div class="form-group">
-                            <strong>Name:</strong>
-                            <input type="text" name="name" value="{{ $company->name ?? '' }}" class="form-control"
-                                placeholder="Name">
-                        </div>
-               <br>
+                <div class="form-group">
+                    <strong>Name:</strong>
+                    <input type="text" name="name" value="{{ $company->name ?? '' }}" class="form-control"
+                        placeholder="Name">
+                </div>
+                <br>
 
 
-                        <div class="form-group"><br>
-                            <strong>Description:</strong>
-                        </div>
+                <div class="form-group"><br>
+                    <strong>Description:</strong>
+                </div>
 
-                    {{-- <input type="text" name="description" value="{{ $company->detail ?? '' }}" class="form-control"
+                {{-- <input type="text" name="description" value="{{ $company->detail ?? '' }}" class="form-control"
                   maxlength=120 placeholder="Description"> --}}
-                    <textarea class="form-control" type="text" name="description" id="description"
-                        value="{{ $company->description ?? '' }}" class="form-control" placeholder="Description"
-                        style="height: 168px;">
+                <textarea class="form-control" type="text" name="description" id="description"
+                    value="{{ $company->description ?? '' }}" class="form-control" placeholder="Description"
+                    style="height: 168px;">
                 </textarea>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-            <button type="submit" class="btn btn-primary" style="margin:50px;">Submit</button>
-        </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+                    <button type="submit" class="btn btn-primary" style="margin:50px;">Submit</button>
+                </div>
 
 
-        </form>
-        <table id="table" class="table table-bordered">
-            <thead class="bg-info text-white">
-                <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Description</th>
+            </form>
+            <table id="table" class="table table-bordered">
+                <thead class="bg-secondary text-white">
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Description</th>
 
-                    <th width="280px">Action</th>
-                </tr>
-            </thead>
+                        <th width="280px">Action</th>
+                    </tr>
+                </thead>
 
-            <tbody>
+                <tbody>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
         </div>
     </body>
     <script>
