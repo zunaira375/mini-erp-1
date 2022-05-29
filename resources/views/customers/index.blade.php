@@ -44,8 +44,6 @@
 @endif
 <div class="container">
     <h3 class="h3"><strong>Add New Customer</strong></h3><br>
-
-
 <form action="{{ route('customers.store') }}" method="POST">
     @csrf
     <input type="hidden" name="id" value="{{$customer->id ?? ''}}" />
